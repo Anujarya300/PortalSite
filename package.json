@@ -1,0 +1,13 @@
+{
+  "name": "PortalBuild1",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+	"express": "^4.10.6",
+    "mysql": "^2.5.4",
+    "ejs": "*"
+  }
+}
