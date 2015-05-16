@@ -9,7 +9,15 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, 'public')));
 app.listen(7007);
 
-var mainRouteConfig = require('./routes/mainRouteConfig.js');
-new mainRouteConfig(app);
+var MainRouteConfig = require('./routesServer/mainRouteConfig.js');
+new MainRouteConfig(app);
 
-console.log("server is startd...");
+//console.log("server is startd on PORT: 7007...");
+console.log("           _ _ _ _");
+console.log("          /        \\");
+console.log("         / server   \\");
+console.log("        /  started   \\");
+console.log("        |    on      |");
+console.log("        \\   PORT    /");
+console.log("         \\  7007   /");
+console.log("          \\_ _ _ _/");
