@@ -22,7 +22,6 @@ mainRouteConfig.prototype.processRoutes = function () {
 	self.routeTable.forEach(function(route) {
 		if(route.requestType === 'GET')
 		{
-			console.log(route);
 			self.app.get(route.requestUrl, route.callbackFunction);
 		}
 	}, this);
@@ -30,6 +29,19 @@ mainRouteConfig.prototype.processRoutes = function () {
 
 mainRouteConfig.prototype.addRoutes = function () {
 	var self = this;
+	
+	// index page
+	self.routeTable.push(
+		{
+			requestType : 'GET',
+			requestUrl : '/',
+			callbackFunction : function (request, response) {
+				response.render('home.html', {title : 'Home Page'});
+			}
+		}
+	);
+	
+	// home page
 	self.routeTable.push(
 		{
 			requestType : 'GET',
@@ -39,6 +51,18 @@ mainRouteConfig.prototype.addRoutes = function () {
 			}
 		}
 	);
+	
+	// any random url not belong to actual page
+	self.routeTable.push(
+		{
+			requestType : 'GET',
+			requestUrl : '*',
+			callbackFunction : function (request, response) {
+				response.render('error.html', {title : 'Home Page'});
+			}
+		}
+	);
+	
 };
 
 module.exports = mainRouteConfig;

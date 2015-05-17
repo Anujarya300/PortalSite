@@ -9,7 +9,11 @@ var resources = {
 	],
 	
 	sheets : [
-		{'url' : '/bootstrap/css/bootstrap.min.css', 'name' : 'bootstrap'},
-		{'url' : '/bootstrap/css/bootstrap-responsive.min.css', 'name' : 'bootstrap responsive'}
+		{'url' : '/bootstrap/themes/bootstrap.min.css', 'name' : 'bootstrap'},
+		{'url' : '/bootstrap/css/bootstrap-responsive.min.css', 'name' : 'bootstrap responsive'},
+		{'url' : '/bootstrap/themes/variables.less', 'name' : 'variables less'},
+		{'url' : '/bootstrap/themes/bootswatch.less', 'name' : 'bootswatch less'},
+		{'url' : '/bootstrap/themes/_variables.scss', 'name' : '_variables scss'},
+		{'url' : '/bootstrap/themes/bootswatch.scss', 'name' : 'bootswatch scss'},
 	]
 };
