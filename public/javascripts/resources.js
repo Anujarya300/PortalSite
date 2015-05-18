@@ -15,5 +15,6 @@ var resources = {
 		{'url' : '/bootstrap/themes/bootswatch.less', 'name' : 'bootswatch less'},
 		{'url' : '/bootstrap/themes/_variables.scss', 'name' : '_variables scss'},
 		{'url' : '/bootstrap/themes/bootswatch.scss', 'name' : 'bootswatch scss'},
+		{'url' : '/stylesheets/circle.css', 'name' : 'circle css'},
 	]
 };
