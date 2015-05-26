@@ -29,25 +29,45 @@ mainRouteConfig.prototype.processRoutes = function () {
 
 mainRouteConfig.prototype.addRoutes = function () {
 	var self = this;
-	
-	// index page
+	var realestateService = require('../serverRepositories/realestateService.js');
+
 	self.routeTable.push(
 		{
 			requestType : 'GET',
-			requestUrl : '/',
+			requestUrl : '/api/AllRealestates',
 			callbackFunction : function (request, response) {
-				response.render('home.html', {title : 'Home Page'});
+				// call method from Realestates repositiories
+				realestateService.getAllRealestate();
 			}
 		}
 	);
 	
-	// home page
+		self.routeTable.push(
+		{
+			requestType : 'GET',
+			requestUrl : '/api/realestate',
+			callbackFunction : function (request, response) {
+				realestateService.getRealestate();
+			}
+		}
+	);
+	
 	self.routeTable.push(
 		{
 			requestType : 'GET',
-			requestUrl : '/home',
+			requestUrl : '/api/addRealestate',
 			callbackFunction : function (request, response) {
-				response.render('home.html', {title : 'Home Page'});
+				// call method from Realestates repositiories
+			}
+		}
+	);
+	
+		self.routeTable.push(
+		{
+			requestType : 'GET',
+			requestUrl : '/api/deleteRealestate',
+			callbackFunction : function (request, response) {
+				// call method from Realestates repositiories
 			}
 		}
 	);
@@ -58,7 +78,7 @@ mainRouteConfig.prototype.addRoutes = function () {
 			requestType : 'GET',
 			requestUrl : '*',
 			callbackFunction : function (request, response) {
-				response.render('error.html', {title : 'Home Page'});
+				response.render('error.html', {title : 'Error Page'});
 			}
 		}
 	);
