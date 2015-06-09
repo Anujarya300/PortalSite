@@ -1,7 +1,7 @@
 /* global __dirname */
 var express = require("express");
 var path = require('path');
-var app = express();
+var app = module.exports = express.createServer();
 var routes = require('./routes/indexRoutes.js');
 
 app.configure(function () {
@@ -29,12 +29,12 @@ app.configure(function () {
 // Routes
 
 app.get('/', routes.index);
-app.get('/partials/:name', routes.partials);
+app.get('/partialViews/:name', routes.partials);
 
 // api
 
-var MainRouteConfig = require('./routes/apiRoutes.js');
-new MainRouteConfig(app);
+var mainRouteConfig = require('./routes/apiRoute.js');
+new mainRouteConfig(app);
 
 //app.configure(function () {
 //

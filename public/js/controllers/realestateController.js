@@ -9,6 +9,10 @@ function IndexCtrl($scope, $http) {
     });
 }
 
+ function AllRealestateCtrl() {
+    return;
+  };
+
 function AddPostCtrl($scope, $http, $location) {
   $scope.form = {};
   $scope.submitPost = function () {
@@ -53,6 +57,7 @@ function DeletePostCtrl($scope, $http, $location, $routeParams) {
         $location.url('/');
       });
   };
+
 
   $scope.home = function () {
     $location.url('/');

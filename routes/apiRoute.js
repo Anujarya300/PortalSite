@@ -34,10 +34,12 @@ mainRouteConfig.prototype.addRoutes = function () {
 	self.routeTable.push(
 		{
 			requestType : 'GET',
-			requestUrl : '/api/AllRealestates',
+			requestUrl : '/api/allRealestates',
 			callbackFunction : function (request, response) {
 				// call method from Realestates repositiories
-				realestateService.getAllRealestate();
+				realestateService.getAllRealestate().then(function (result) {
+					response.write(JSON.stringify(result));
+				});
 			}
 		}
 	);

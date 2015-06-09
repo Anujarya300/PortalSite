@@ -4,7 +4,7 @@ var loadScripts = {};
 (function () {
     
 var loadResourceScript = function () {
-    loadScript('/javascripts/resources.js', resourceLoadCallback);
+    loadScript('/js/resources.js', resourceLoadCallback);
 };  
     
 var resourceLoadCallback = function () {
