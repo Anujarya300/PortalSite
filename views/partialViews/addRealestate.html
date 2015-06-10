@@ -1,0 +1,19 @@
+<form>
+    <div class="form-group">
+        <label for="inputTitle">Title</label>
+        <input type="text" ng-model="title" class="form-control" id="inputTitle" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" ng-model="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="inputDescription">Description</label>
+        <textarea rows="4" ng-model="description" class="form-control" id="inputDescription" placeholder="Description"></textarea>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox">Remember me</label>
+    </div>
+    <button ng-click="postAd()" type="submit" class="btn btn-primary">Post</button>
+</form>

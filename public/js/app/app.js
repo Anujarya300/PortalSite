@@ -8,18 +8,26 @@
 angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives']).
   config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
+    when('/realestate', {
+        templateUrl: 'partialViews/realestate',
+        controller: RealestateCtrk
+      }).
       when('/allRealestate', {
         templateUrl: 'partialViews/allRealestate',
         controller: AllRealestateCtrl
       }).
-      // when('/addRealestate/:id', {
-      //   templateUrl: 'partials/addRealestate',
-      //   controller: addRealestateCtrl
-      // }).
-      // when('/editPost/:id', {
-      //   templateUrl: 'partials/editPost',
-      //   controller: EditPostCtrl
-      // }).
+      when('/addRealestate/', {
+        templateUrl: 'partialViews/addRealestate',
+        controller: AddRealestateCtrl
+      }).
+      when('/editPost/:id', {
+        templateUrl: 'partialViews/editPost',
+        controller: EditPostCtrl
+      }).
+      when('/e', {
+        templateUrl: 'partialViews/e',
+        controller: EditPostCtrl
+      }).
       // when('/deleteRealestate/:id', {
       //   templateUrl: 'partials/deleteRealestate',
       //   controller: deleteRealestateCtrl

@@ -10,37 +10,38 @@
   </head>
   
   <body ng-app="myApp">
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div >
-          <ul class="nav navbar-nav">
-            <li>
-              <p></p>
-              <img src="/images/logo.jpg" />
-              </p>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#">Sign in</a>
-            </li>
-            <li>
-              <a href="#">Sign up</a>
-            </li>
-          </ul>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div>
+            <ul class="nav navbar-nav">
+              <li>
+                <p></p>
+                <img src="/images/logo.jpg" />
+                </p>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="#">Sign in</a>
+              </li>
+              <li>
+                <a href="#">Sign up</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
         </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-    </nav>
-    <!-- <div class="container">
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- <div class="container">
 
       Main component for a primary marketing message or call to action
       <div class="jumbotron">
@@ -52,63 +53,65 @@
         </p>
       </div>
   </div>-->
-    <section style="background:#efefe9;">
-      <div class="container">
-        <div class="row">
-          <div class="board">
-            <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
-            <div class="board-inner">
-              <div class="row">
-                <div class="col-md-10 col-md-offset-2">
-                  <ul class="nav nav-tabs" id="myTab">
-                    <!-- <div class="liner"></div>-->
-                    <li class="active">
-                      <a href="/allRealestate">
+      <section style="background:#efefe9;">
+        <div class="container">
+          <div >
+            <div >
+              <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+              <div>
+                <div >
+                  <div>
+                    <ul class="nav nav-tabs" ng-controller="HeaderController">
+                      <!-- <div class="liner"></div>-->
+                      <li ng-class="{active: isActive('/realestate')}">
+                        <a href="/realestate">
                       <span class="round-tabs one">
                         <img src="/images/Home-icon.png" style="height:30px;width:30px;" />
                         <label>Real Estate</label>
                       </span> 
                   </a>
-                    </li>
-                    <li>
-                      <a href="#profile" title="profile">
+                      </li>
+                      <li ng-class="{active: isActive('/editPost/1')}">
+                        <a href="/editPost/1">
                      <span class="round-tabs two">
                          <img src="/images/car.png" style="height:30px;width:30px;" />
                         <label>Car & Bikes</label>
                      </span> 
                  </a>
-                    </li>
-                    <li>
-                      <a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+                      </li>
+                      <li ng-class="{active: isActive('/e')}">
+                        <a href="/e">
                      <span class="round-tabs three">
                          <img src="/images/electronics.png" style="height:30px;width:30px;" />
                         <label>Electronics</label>
                      </span> </a>
-                    </li>
-                    <li>
-                      <a href="#settings" data-toggle="tab" title="blah blah">
+                      </li>
+                      <li>
+                        <a href="#settings" data-toggle="tab" title="blah blah">
                          <span class="round-tabs four">
                              <img src="/images/mobile.png" style="height:30px;width:30px;" />
                         <label>Laptop & Mobile</label>
                          </span> 
                      </a>
-                    </li>
-                    <li>
-                      <a href="#doner" data-toggle="tab" title="completed">
+                      </li>
+                      <li>
+                        <a href="#doner" data-toggle="tab" title="completed">
                          <span class="round-tabs five">
                               <img src="/images/cart.png" style="height:30px;width:30px;background-color:green;" />
                         <label>Home Appliances</label>
                          </span> </a>
-                    </li>
-                  </ul>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <div ng-view></div>
+      </section>
+      <div ng-view></div>
+    </div>
   </body>
-<script src="/js/scripts.js" type="text/javascript"></script>
+
+  <script src="/js/scripts.js" type="text/javascript"></script>
 </html>

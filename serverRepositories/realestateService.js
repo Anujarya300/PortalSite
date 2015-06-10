@@ -1,23 +1,25 @@
-
 (function () {
-
+	
 	var realestateService = {
 
-		getAllRealestate: function () {
+		getAllRealestate: function (callback) {
 			// data connection to get all realestates
 			var mysql = require('mysql');
 			var connection = mysql.createConnection({
 				host: 'localhost',
 				user: 'root',
-				password: 'titanic300',
-				database: 'adportal'
+				password: 'root',
+				database: 'test'
 			});
 
 			connection.connect();
 
-			connection.query('SELECT * from adinfo', function (err, rows, fields) {
+			connection.query('SELECT * from t1', function (err, rows, fields) {
 				if (!err)
+				{
 					console.log('The solution is: ', rows);
+					callback(rows);
+				}
 				else
 					console.log('Error while performing Query.');
 			});

@@ -36,6 +36,10 @@ app.get('/partialViews/:name', routes.partials);
 var mainRouteConfig = require('./routes/apiRoute.js');
 new mainRouteConfig(app);
 
+// app.get('/api/allRealestate', function (request, response) {
+//    response.json('ifjdi');
+// });
+
 //app.configure(function () {
 //
 //  app.set("view options", {
