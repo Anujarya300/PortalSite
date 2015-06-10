@@ -1,22 +1,19 @@
 (function () {
-	
+
+	var mysql = require('mysql');
+	var connection = mysql.createConnection({
+		host: 'localhost',
+		user: 'root',
+		password: 'titanic300',
+		database: 'adportal'
+	});
+
 	var realestateService = {
 
 		getAllRealestate: function (callback) {
-			// data connection to get all realestates
-			var mysql = require('mysql');
-			var connection = mysql.createConnection({
-				host: 'localhost',
-				user: 'root',
-				password: 'root',
-				database: 'test'
-			});
 
-			connection.connect();
-
-			connection.query('SELECT * from t1', function (err, rows, fields) {
-				if (!err)
-				{
+			connection.query('SELECT * from adinfo', function (err, rows, fields) {
+				if (!err) {
 					console.log('The solution is: ', rows);
 					callback(rows);
 				}
@@ -24,14 +21,38 @@
 					console.log('Error while performing Query.');
 			});
 
-			connection.end();
-
 		},
 
-		getRealestate: function (id) {
+		addRealestate: function (data, callback) {
+			var sqlData = {
+				AdTitle: data.title,
+				Description: data.description,
+				AdType: 'Sell',
+				Category: 'Realestate'
+			};
+
+			connection.query('INSERT INTO adinfo SET ?', sqlData, function (err, result) {
+				// Neat!
+				console.log(result);
+				console.log(err);
+				if (callback)
+					callback(result);
+			});
+			
+		},
+
+		getRealestate: function (id, callback) {
 			// fetch a realestate data from db
+			connection.query('SELECT * from adinfo where ad_id = ?',id, function (err, rows, fields) {
+				if (!err) {
+					console.log('The solution is: ', rows);
+					callback(rows);
+				}
+				else
+					console.log('Error while performing Query.');
+			});
 		}
 	};
 	module.exports = realestateService;
-
+var pass = 'titanic300';
 })();

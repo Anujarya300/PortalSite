@@ -24,6 +24,10 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
         templateUrl: 'partialViews/editPost',
         controller: EditPostCtrl
       }).
+      when('/viewRealestate/:id', {
+        templateUrl: 'partialViews/viewRealestate',
+        controller: ViewRealestateCtrl
+      }).
       when('/e', {
         templateUrl: 'partialViews/e',
         controller: EditPostCtrl

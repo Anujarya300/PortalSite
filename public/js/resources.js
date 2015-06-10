@@ -5,7 +5,7 @@ var resources = {
 	scripts : [
 		//{'url' : '/js/name.js', 'name' : '1 JS'},
 		{'url' : 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js', 'name' : 'bootstrap'},
-		{'url' : 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', 'name' : 'jQuery'},
+		//{'url' : 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', 'name' : 'jQuery'},
 		{'url' : '/js/lib/angular/angular.js', 'name' : 'angular'},
 		{'url' : '/js/app/app.js', 'name' : 'app'},
 		{'url' : '/js/controllers/realestateController.js', 'name' : 'realestateController'},
@@ -24,6 +24,6 @@ var resources = {
 		// {'url' : '/bootstrap/themes/bootswatch.less', 'name' : 'bootswatch less'},
 		// {'url' : '/bootstrap/themes/_variables.scss', 'name' : '_variables scss'},
 		// {'url' : '/bootstrap/themes/bootswatch.scss', 'name' : 'bootswatch scss'},
-		{'url' : '/stylesheets/circle.css', 'name' : 'circle css'}
+		{'url' : '/stylesheets/main.css', 'name' : 'main css'}
 	]
 };

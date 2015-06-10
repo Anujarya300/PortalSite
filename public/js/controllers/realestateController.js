@@ -11,13 +11,22 @@ function IndexCtrl($scope, $http) {
 
 function RealestateCtrk($scope, $http) {
 
-return;
+  return;
 }
 
 function AllRealestateCtrl($scope, $http) {
+  var bindData = [];
   $http.get('/api/allRealestate').
     success(function (data, status, headers, config) {
-    $scope.posts = data;
+    angular.forEach(data, function (value, key) {
+      bindData.push({
+        id: value.ad_id,
+        title: value.AdTitle,
+        description: value.Description,
+        adType: value.AdType
+      });
+    });
+    $scope.posts = bindData;
   }).
     error(function (data, status, headers, config) {
     // called asynchronously if an error occurs
@@ -35,14 +44,31 @@ function AddRealestateCtrl($scope, $http, $location) {
       title: $scope.title,
       description: $scope.description,
       email: $scope.email
-    }
-
-    $http.post('/api/addRealestate', addRealestateJSON).
-      success(function (data) {
-      $location.path('/realestate');
-    });
-  };
+    };
+    if ($scope.title) {
+      $http.post('/api/addRealestate', addRealestateJSON).
+        success(function (data) {
+        $location.path('/allRealestate');
+      });
+    };
+  }
 }
+
+function ViewRealestateCtrl($scope, $http, $routeParams) {
+  var bindData = {};
+    $http.get('/api/viewRealestate/' + $routeParams.id).
+    success(function(data) {
+      var dataObj = data[0];
+      bindData = {
+        title: dataObj.AdTitle,
+        description: dataObj.Description,
+        adType: dataObj.AdType
+      };
+      $scope.realestate = bindData;
+    });
+
+
+};
 
 function ReadPostCtrl($scope, $http, $routeParams) {
   $http.get('/api/post/' + $routeParams.id).

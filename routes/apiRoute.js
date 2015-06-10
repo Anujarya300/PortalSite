@@ -30,6 +30,8 @@ mainRouteConfig.prototype.processRoutes = function () {
 	}, this);
 };
 
+/* ~~~ Realestate api routes */
+
 mainRouteConfig.prototype.addRoutes = function () {
 	var self = this;
 	var realestateService = require('../serverRepositories/realestateService.js');
@@ -51,9 +53,11 @@ mainRouteConfig.prototype.addRoutes = function () {
 		self.routeTable.push(
 		{
 			requestType : 'GET',
-			requestUrl : '/api/realestate',
+			requestUrl : '/api/viewRealestate/:id',
 			callbackFunction : function (request, response) {
-				realestateService.getRealestate();
+				realestateService.getRealestate(request.params.id, function (result) {
+					response.json(result);
+				});
 			}
 		}
 	);
@@ -65,7 +69,9 @@ mainRouteConfig.prototype.addRoutes = function () {
 			callbackFunction : function (request, response) {
 				// call method from Realestates repositiories
 				console.log(request.body);
-				response.json(request.body);
+				realestateService.addRealestate(request.body, function (result) {
+					response.json(result);
+				});
 			}
 		}
 	);
@@ -79,6 +85,8 @@ mainRouteConfig.prototype.addRoutes = function () {
 			}
 		}
 	);
+	
+	/* ~~~ End of Realestate api routes */
 	
 	// any random url not belong to actual page
 	self.routeTable.push(
