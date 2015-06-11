@@ -1,13 +1,13 @@
 (function () {
 
-var mysqlconnection = require("../serverUtils/mysqlConnectionSetting.js");
+var mysqlConnection = require("../serverUtils/mysqlConnectionSetting.js");
 
-var category = 'Realestate';
-	var realestateService = {
+	var category = 'CarBike';
+	var carbikeService = {
+		
+		getAllCarBikes: function (callback) {
 
-		getAllRealestate: function (callback) {
-
-			mysqlconnection.query('SELECT * from adinfo WHERE Category = ?',category, function (err, rows, fields) {
+			mysqlConnection.query('SELECT * from adinfo WHERE Category = ?',category, function (err, rows, fields) {
 				if (!err) {
 					console.log('The solution is: ', rows);
 					callback(rows);
@@ -18,7 +18,7 @@ var category = 'Realestate';
 
 		},
 
-		addRealestate: function (data, callback) {
+		addCarbike: function (data, callback) {
 			var sqlData = {
 				AdTitle: data.title,
 				Description: data.description,
@@ -26,7 +26,7 @@ var category = 'Realestate';
 				Category: category
 			};
 
-			mysqlconnection.query('INSERT INTO adinfo SET ?', sqlData, function (err, result) {
+			mysqlConnection.query('INSERT INTO adinfo SET ?', sqlData, function (err, result) {
 				// Neat!
 				console.log(result);
 				console.log(err);
@@ -36,9 +36,9 @@ var category = 'Realestate';
 			
 		},
 
-		getRealestate: function (id, callback) {
+		getCarBike: function (id, callback) {
 			// fetch a realestate data from db
-			mysqlconnection.query('SELECT * from adinfo where ad_id = ?',id, function (err, rows, fields) {
+			mysqlConnection.query('SELECT * from adinfo where ad_id = ?',id, function (err, rows, fields) {
 				if (!err) {
 					console.log('The solution is: ', rows);
 					callback(rows);
@@ -48,6 +48,6 @@ var category = 'Realestate';
 			});
 		}
 	};
-	module.exports = realestateService;
+	module.exports = carbikeService;
 
 })();

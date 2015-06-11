@@ -1,6 +1,6 @@
 'use strict';
 
-/* Controllers */
+/* Controllers belongs to realestate category */
 
 function IndexCtrl($scope, $http) {
   $http.get('/api/allRealestate').
@@ -22,7 +22,7 @@ function AllRealestateCtrl($scope, $http) {
       bindData.push({
         id: value.ad_id,
         title: value.AdTitle,
-        description: value.Description,
+        description: JSON.parse(value.Description),
         adType: value.AdType
       });
     });
@@ -42,7 +42,7 @@ function AddRealestateCtrl($scope, $http, $location) {
 
     var addRealestateJSON = {
       title: $scope.title,
-      description: $scope.description,
+      description: JSON.stringify({description : $scope.description, email : $scope.email}),
       email: $scope.email
     };
     if ($scope.title) {
@@ -61,7 +61,7 @@ function ViewRealestateCtrl($scope, $http, $routeParams) {
       var dataObj = data[0];
       bindData = {
         title: dataObj.AdTitle,
-        description: dataObj.Description,
+        description: JSON.parse(dataObj.Description),
         adType: dataObj.AdType
       };
       $scope.realestate = bindData;

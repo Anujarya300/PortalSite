@@ -3,9 +3,9 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="row" style="margin-top: 20%;margin-left: 0%;">
-					<a href="/addRealestate">
+					<a href="/addCarBike">
 				<div class="span2 well">
-				Post Ad Buy/Sell of Realestate
+				Post Ad Buy/Sell of Car/Bikes
 				</div></a>
 				</div>
 				<div class="row" style="margin-left: 15%;margin-top: 10%;">
@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<h1>List of all realestate.</h1>
+				<h1>List of all car & bikes.</h1>
 				<!--<ul ng-repeat="post in posts">
 	<li>
 		<a ng-href="/viewRealestate/{{post.id}}"> {{post.title}}</a>
@@ -22,8 +22,8 @@
 		<div class="row">{{post.adType}}</div>
 	</li>
 </ul>-->
-				<div class="list-group" ng-repeat="post in posts">
-					<a ng-href="/viewRealestate/{{post.id}}" class="list-group-item list-group-item-success">
+				<div class="list-group" ng-repeat="post in carBikes">
+					<a ng-href="/viewCarBike/{{post.id}}" class="list-group-item list-group-item-success">
     		<h4 class="list-group-item-heading"><b>{{post.title}}</b></h4>
    			 <p class="list-group-item-text">
 					{{post.description.description}}

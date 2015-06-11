@@ -10,6 +10,7 @@ var resources = {
 		{'url' : '/js/app/app.js', 'name' : 'app'},
 		{'url' : '/js/controllers/realestateController.js', 'name' : 'realestateController'},
 		{'url' : '/js/controllers/navHeaderController.js', 'name' : 'navHeaderController'},
+		{'url' : '/js/controllers/carBikesController.js', 'name' : 'carBikesController'},
 		{'url' : '/js/directives/directives.js', 'name' : 'directives'},		
 		{'url' : '/js/filters/filters.js', 'name' : 'filters'},		
 		{'url' : '/js/services/services.js', 'name' : 'services'}
@@ -24,6 +25,6 @@ var resources = {
 		// {'url' : '/bootstrap/themes/bootswatch.less', 'name' : 'bootswatch less'},
 		// {'url' : '/bootstrap/themes/_variables.scss', 'name' : '_variables scss'},
 		// {'url' : '/bootstrap/themes/bootswatch.scss', 'name' : 'bootswatch scss'},
-		{'url' : '/stylesheets/main.css', 'name' : 'main css'}
+		{'url' : '/css/main.css', 'name' : 'main css'}
 	]
 };

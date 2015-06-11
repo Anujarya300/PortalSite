@@ -1,10 +1,25 @@
-<h1>Ad Details</h1>
-<div class="row">
-	<div class="col-md-6">
-		<span>{{realestate.title}}</span>
-		<span>{{realestate.description}}</span>
+<section class="viewBackground">
+	<h2>Ad Details</h2>
+	<div class="row" style="margin-left:0px;">
+		<div class="col-md-6">
+			<h4>
+				<b>{{realestate.title}}</b>
+			</h4>
+			<ul class="list-unstyled">
+				<li>
+					<b>Description</b>
+					<hr>
+				</li>
+				<li>{{realestate.description.description}}</li>
+				<li style="margin:2px">
+					<b>Contact</b>
+					<hr>
+				</li>
+				<li>Email : {{realestate.description.email}}</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<h2>Preview Images</h2>
+		</div>
 	</div>
-	<div class="col-md-6">
-		
-	</div>
-</div>
+</section>

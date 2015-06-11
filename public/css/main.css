@@ -1,4 +1,15 @@
-.span2.well {
-  width: 90%;
-  margin-left: 5%
+.span2.well:hover {
+  /*width: 90%;
+  margin-left: 5%*/
+  background: lightgray
+}
+
+.viewBackground{
+  background:#efefe9;
+  padding:2%;
+  margin-top:2%;
+}
+.viewBackground hr {
+  border-color: darkgrey;
+  margin:0px;
 }
