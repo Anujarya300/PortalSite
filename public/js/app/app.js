@@ -1,12 +1,12 @@
+/* global app */
 'use strict';
 
 /// <reference path="../controllers/realestateController.js" />
 
-
+var app = angular.module('myApp', []);
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives']).
-  config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/realestate', {
     templateUrl: 'partialViews/realestate',
@@ -14,11 +14,11 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
   }).
     when('/allRealestate', {
     templateUrl: 'partialViews/allRealestate',
-    controller: AllRealestateCtrl
+    controller: 'AllRealestateCtrl'
   }).
     when('/addRealestate/', {
     templateUrl: 'partialViews/addRealestate',
-    controller: AddRealestateCtrl
+    controller: 'AddRealestateCtrl'
   }).
     when('/editPost/:id', {
     templateUrl: 'partialViews/editPost',
@@ -26,7 +26,7 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
   }).
     when('/viewRealestate/:id', {
     templateUrl: 'partialViews/viewRealestate',
-    controller: ViewRealestateCtrl
+    controller: 'ViewRealestateCtrl'
   }).
     when('/carBikes', {
     templateUrl: 'partialViews/carBikes',

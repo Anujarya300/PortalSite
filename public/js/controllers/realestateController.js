@@ -14,7 +14,7 @@ function RealestateCtrk($scope, $http) {
   return;
 }
 
-function AllRealestateCtrl($scope, $http) {
+app.controller('AllRealestateCtrl', function ($scope, $http) {
   var bindData = [];
   $http.get('/api/allRealestate').
     success(function (data, status, headers, config) {
@@ -34,15 +34,15 @@ function AllRealestateCtrl($scope, $http) {
     var d = data;
   });
 
-};
+});
 
-function AddRealestateCtrl($scope, $http, $location) {
+app.controller('AddRealestateCtrl',function ($scope, $http, $location) {
   //$scope.form = {};
   $scope.postAd = function () {
 
     var addRealestateJSON = {
       title: $scope.title,
-      description: JSON.stringify({description : $scope.description, email : $scope.email}),
+      description: JSON.stringify({ description: $scope.description, email: $scope.email }),
       email: $scope.email
     };
     if ($scope.title) {
@@ -51,24 +51,22 @@ function AddRealestateCtrl($scope, $http, $location) {
         $location.path('/allRealestate');
       });
     };
-  }
-}
+  };
+});
 
-function ViewRealestateCtrl($scope, $http, $routeParams) {
+app.controller('ViewRealestateCtrl', function ($scope, $http, $routeParams) {
   var bindData = {};
-    $http.get('/api/viewRealestate/' + $routeParams.id).
-    success(function(data) {
-      var dataObj = data[0];
-      bindData = {
-        title: dataObj.AdTitle,
-        description: JSON.parse(dataObj.Description),
-        adType: dataObj.AdType
-      };
-      $scope.realestate = bindData;
-    });
-
-
-};
+  $http.get('/api/viewRealestate/' + $routeParams.id).
+    success(function (data) {
+    var dataObj = data[0];
+    bindData = {
+      title: dataObj.AdTitle,
+      description: JSON.parse(dataObj.Description),
+      adType: dataObj.AdType
+    };
+    $scope.realestate = bindData;
+  });
+});
 
 function ReadPostCtrl($scope, $http, $routeParams) {
   $http.get('/api/post/' + $routeParams.id).
