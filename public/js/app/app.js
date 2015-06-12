@@ -30,15 +30,15 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
   }).
     when('/carBikes', {
     templateUrl: 'partialViews/carBikes',
-    controller: AllCarBikesCtrl
+    controller: 'AllCarBikesCtrl'
   }).
   when('/addCarBike/', {
     templateUrl: 'partialViews/addCarBike',
-    controller: AddCarBikeCtrl
+    controller: 'AddCarBikeCtrl'
   }).
     when('/viewCarBike/:id', {
     templateUrl: 'partialViews/viewCarBike',
-    controller: ViewCarBikeCtrl
+    controller: 'ViewCarBikeCtrl'
   }).
     when('/e', {
     templateUrl: 'partialViews/e',

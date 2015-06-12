@@ -2,7 +2,7 @@
 
 /* Controllers belongs to car & bikes category */
 
-function AllCarBikesCtrl($scope, $http) {
+app.controller('AllCarBikesCtrl', function($scope, $http) {
 	var bindData = [];
 	$http.get('/api/allCarBikes').
 		success(function (data, status, headers, config) {
@@ -18,9 +18,9 @@ function AllCarBikesCtrl($scope, $http) {
 		});
 		$scope.carBikes = bindData;
 	});
-}
+});
 
-function AddCarBikeCtrl($scope, $http, $location) {
+app.controller('AddCarBikeCtrl', function($scope, $http, $location) {
   //$scope.form = {};
   $scope.postAd = function () {
 
@@ -36,9 +36,9 @@ function AddCarBikeCtrl($scope, $http, $location) {
       });
     };
   };
-}
+});
 
-function ViewCarBikeCtrl($scope, $http, $routeParams) {
+app.controller('ViewCarBikeCtrl', function($scope, $http, $routeParams) {
   var bindData = {};
     $http.get('/api/viewCarBike/' + $routeParams.id).
     success(function(data) {
@@ -52,4 +52,4 @@ function ViewCarBikeCtrl($scope, $http, $routeParams) {
     });
 
 
-};
+});

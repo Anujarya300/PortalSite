@@ -1,3 +1,4 @@
+/* global app */
 'use strict';
 
 /* Controllers belongs to realestate category */
