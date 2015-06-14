@@ -6,8 +6,10 @@
     "start": "node app.js"
   },
   "dependencies": {
-	"express": "2.5.10",
+    "express": "2.5.10",
     "mysql": "2.5.4",
-    "ejs": "*"
+    "ejs": "*",
+    "passport": "*",
+    "passport-local": "*"
   }
 }

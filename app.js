@@ -3,6 +3,38 @@ var express = require("express");
 var path = require('path');
 var app = module.exports = express.createServer();
 var routes = require('./routes/indexRoutes.js');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+
+//==================================================================
+// Define the strategy to be used by PassportJS
+passport.use(new LocalStrategy(
+  function (username, password, done) {
+    console.log(username + ':' + password);
+    if (username === "admin" && password === "admin") // stupid example
+    return done(null, { name: "admin" });
+
+    // return done(null, false, { message: 'Incorrect username.' });
+  }
+  ));
+
+// Serialized and deserialized methods when got from session
+passport.serializeUser(function (user, done) {
+  console.log(user);
+  done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+  console.log(user);
+  done(null, user);
+});
+
+// Define a middleware function to be used for every secured routes
+
+//==================================================================
+
+
 
 app.configure(function () {
   app.set('views', __dirname + '/views');
@@ -21,6 +53,10 @@ app.configure(function () {
   });
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.cookieParser());
+  app.use(express.session({ secret: 'securedsession' }));
+  app.use(passport.initialize()); // Add passport initialization
+  app.use(passport.session());    // Add passport initialization
   app.use(express.static(__dirname + '/public'));
   app.use(app.router);
 });
@@ -30,6 +66,27 @@ app.configure(function () {
 
 app.get('/', routes.index);
 app.get('/partialViews/:name', routes.partials);
+
+//==================================================================
+// route to test if the user is logged in or not
+app.get('/loggedin', function (req, res) {
+  res.send(req.isAuthenticated() ? req.user : '0');
+});
+
+// route to log in
+app.post('/userlogin', passport.authenticate('local'), function (req, res) {
+  console.log(req.user);
+  res.send(req.user);
+});
+
+// route to log out
+app.post('/logout', function (req, res) {
+  req.logOut();
+  res.send(200);
+});
+//==================================================================
+
+
 
 // api
 

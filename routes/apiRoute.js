@@ -1,5 +1,16 @@
 // Closers
+
+/// <reference path="../app.js" />
+
+
 (function () {
+
+var auth = function (req, res, next) {
+  if (!req.isAuthenticated())
+    res.send(401);
+  else
+    next();
+};
 
 	function mainRouteConfig(app) {
 		var self = this;
@@ -24,7 +35,7 @@
 				self.app.get(route.requestUrl, route.callbackFunction);
 			}
 			if (route.requestType === 'POST') {
-				self.app.post(route.requestUrl, route.callbackFunction);
+				self.app.post(route.requestUrl, auth, route.callbackFunction);
 			}
 		}, this);
 	};
@@ -34,6 +45,7 @@
 	mainRouteConfig.prototype.addRoutes = function () {
 		var self = this;
 		var realestateService = require('../serverRepositories/realestateService.js');
+		var carbikeService = require('../serverRepositories/carBikeService.js');
 
 		self.routeTable.push(
 			{
@@ -90,7 +102,6 @@
 	
 		/* ~~~ Start of Car & Bikes api routes */
 
-		var carbikeService = require('../serverRepositories/carBikeService.js');
 
 		self.routeTable.push(
 			{
@@ -156,6 +167,7 @@
 			);
 
 	};
+
 
 	module.exports = mainRouteConfig;
 

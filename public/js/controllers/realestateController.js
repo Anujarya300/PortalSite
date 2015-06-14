@@ -37,8 +37,13 @@ app.controller('AllRealestateCtrl', function ($scope, $http) {
 
 });
 
-app.controller('AddRealestateCtrl',function ($scope, $http, $location) {
+app.controller('AddRealestateCtrl', function ($scope, $rootScope, $http, $location) {
   //$scope.form = {};
+  if (!$rootScope.isLoggedin) {
+    $location.path('/needLogin');
+    return;
+  }
+
   $scope.postAd = function () {
 
     var addRealestateJSON = {
