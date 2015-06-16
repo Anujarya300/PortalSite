@@ -2,13 +2,19 @@
 /**********************************************************************
  * Login controller
  **********************************************************************/
-app.controller('LoginCtrl', function ($scope, $rootScope, $http, $location) {
+app.controller('LoginCtrl', function ($scope, $rootScope, $http, $location, ngDialog) {
   // This object will be filled by the form
 
-    $scope.showModal = false;
-    $scope.toggleModal = function () {
-      $scope.showModal = !$scope.showModal;
-    };
+  $scope.openSecond = function () {
+    ngDialog.open({
+      template: '<h3><a href="" ng-click="closeSecond()">Close all by click here!</a></h3>',
+      plain: true,
+      closeByEscape: false,
+      controller: 'SecondModalCtrl'
+    });
+  };
+
+
 
   $scope.user = {};
 
@@ -22,18 +28,23 @@ app.controller('LoginCtrl', function ($scope, $rootScope, $http, $location) {
       // No error: authentication OK
       $rootScope.message = 'Authentication successful!';
       $rootScope.isLoggedin = true;
+      ngDialog.closeAll();
       $location.url('/');
     })
       .error(function () {
       // Error: authentication failed
       $rootScope.message = 'Authentication failed.';
-      $rootScope.isLoggedin = true;      
+      $rootScope.isLoggedin = false;
       $location.url('/login');
     });
   };
 });
 
-
+app.controller('SecondModalCtrl', function ($scope, ngDialog) {
+  $scope.closeSecond = function () {
+    ngDialog.close();
+  };
+});
 
 /**********************************************************************
  * Admin controller
