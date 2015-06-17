@@ -18,6 +18,7 @@ var resources = {
 		{ 'url': '/js/controllers/navHeaderController.js', 'name': 'navHeaderController' },
 		{ 'url': '/js/controllers/carBikesController.js', 'name': 'carBikesController' },
 		{ 'url': '/js/controllers/loginController.js', 'name': 'loginController' },
+		{ 'url': '/js/controllers/signupController.js', 'name': 'signupController' },
 		{ 'url': '/js/directives/directives.js', 'name': 'directives' },
 		{ 'url': '/js/filters/filters.js', 'name': 'filters' },
 		{ 'url': '/js/services/services.js', 'name': 'services' },

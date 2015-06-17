@@ -59,7 +59,7 @@
                 <a ng-show="isLoggedin" href="/" ng-click="logout()">Sign out</a>
               </li>
               <li>
-                <a href="#">Sign up</a>
+                <a ng-show="!isLoggedin" href="/signup">Sign up</a>
               </li>
             </ul>
           </div>

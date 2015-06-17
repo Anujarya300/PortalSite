@@ -5,12 +5,12 @@
 
 (function () {
 
-var auth = function (req, res, next) {
-  if (!req.isAuthenticated())
-    res.send(401);
-  else
-    next();
-};
+	var auth = function (req, res, next) {
+		if (!req.isAuthenticated())
+			res.send(401);
+		else
+			next();
+	};
 
 	function mainRouteConfig(app) {
 		var self = this;
@@ -35,7 +35,11 @@ var auth = function (req, res, next) {
 				self.app.get(route.requestUrl, route.callbackFunction);
 			}
 			if (route.requestType === 'POST') {
-				self.app.post(route.requestUrl, auth, route.callbackFunction);
+				if (route.isPublicApi)
+					self.app.post(route.requestUrl, route.callbackFunction);
+				else
+					self.app.post(route.requestUrl, auth, route.callbackFunction);
+
 			}
 		}, this);
 	};
@@ -46,6 +50,7 @@ var auth = function (req, res, next) {
 		var self = this;
 		var realestateService = require('../serverRepositories/realestateService.js');
 		var carbikeService = require('../serverRepositories/carBikeService.js');
+		var loginService = require('../serverRepositories/loginService.js');
 
 		self.routeTable.push(
 			{
@@ -154,6 +159,25 @@ var auth = function (req, res, next) {
 			);
 	
 		/* ~~~ End of Car & Bikes api routes */
+	
+		/* ~~~ Sign up api routes */
+
+		self.routeTable.push(
+			{
+				requestType: 'POST',
+				requestUrl: '/api/signup',
+				callbackFunction: function (request, response) {
+					// call method from Realestates repositiories
+					console.log(request.body);
+					loginService.addUser(request.body, function (result) {
+						response.json(result);
+					});
+				},
+				isPublicApi: true
+			}
+			);
+	
+		/* ~~~ End of Sign up api routes */
 	
 		// any random url not belong to actual page
 		self.routeTable.push(

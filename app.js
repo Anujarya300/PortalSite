@@ -5,15 +5,20 @@ var app = module.exports = express.createServer();
 var routes = require('./routes/indexRoutes.js');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var loginService = require('./serverRepositories/loginService.js')
 
 
 //==================================================================
 // Define the strategy to be used by PassportJS
+
 passport.use(new LocalStrategy(
   function (username, password, done) {
     console.log(username + ':' + password);
-    if (username === "admin" && password === "admin") // stupid example
-    return done(null, { name: "admin" });
+    loginService.getUserByName(username, function (user) {
+      console.log(user);
+      if ( user && username === user.Name && password === user.password)
+        return done(null, { name: username });
+    });
 
     // return done(null, false, { message: 'Incorrect username.' });
   }
