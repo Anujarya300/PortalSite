@@ -3,7 +3,7 @@
 
 /// <reference path="../controllers/realestateController.js" />
 
-var app = angular.module('myApp', ['ngRoute', 'ngDialog']);
+var app = angular.module('myApp', ['ngRoute', 'ngDialog','ngAnimate', 'ngTouch']);
 
 // Declare app level module which depends on filters, and services
 app.config(function ($routeProvider, $locationProvider, $httpProvider) {
