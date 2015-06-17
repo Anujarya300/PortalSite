@@ -12,6 +12,8 @@ var resources = {
 		//{ 'url': '/js/lib/angular-1.3.16/angular-resource.min.js', 'name': 'angular resource' },
 		{ 'url': '/js/lib/angular-1.3.16/angular-route.min.js', 'name': 'angular route' },
 		{ 'url': '/js/lib/angular-1.3.16/ngDialog.min.js', 'name': 'angular dialog model' },
+		{ 'url': '/js/lib/angular-1.3.16/angular-animate.min.js', 'name': 'angular animate js' },
+		{ 'url': '/js/lib/angular-1.3.16/angular-touch.min.js', 'name': 'angular touch js' },
 		{ 'url': '/js/app/app.js', 'name': 'app' },
 		{ 'url': '/js/controllers/realestateController.js', 'name': 'realestateController' },
 		{ 'url': '/js/controllers/mainController.js', 'name': 'realestateController' },
@@ -32,6 +34,7 @@ var resources = {
 		// {'url' : '/bootstrap/themes/bootswatch.less', 'name' : 'bootswatch less'},
 		// {'url' : '/bootstrap/themes/_variables.scss', 'name' : '_variables scss'},
 		// {'url' : '/bootstrap/themes/bootswatch.scss', 'name' : 'bootswatch scss'},
-		{ 'url': '/css/main.css', 'name': 'main css' }
+		{ 'url': '/css/main.css', 'name': 'main css' },
+		{ 'url': '/css/imageGallery.css', 'name': 'image gallery css' }
 	]
 };

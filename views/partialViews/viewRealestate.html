@@ -1,7 +1,7 @@
 <section class="viewBackground">
-	<h2>Ad Details</h2>
 	<div class="row" style="margin-left:0px;">
 		<div class="col-md-6">
+			<h2>Ad Details</h2>
 			<h4>
 				<b>{{realestate.title}}</b>
 			</h4>
@@ -20,6 +20,20 @@
 		</div>
 		<div class="col-md-6">
 			<h2>Preview Images</h2>
+			<div class="container slider">
+				<!-- enumerate all photos -->
+				<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)"
+				ng-src="{{photo.src}}" />
+				<!-- prev / next controls -->
+				<a class="arrow prev" href="#" ng-click="showPrev()"></a>
+				<a class="arrow next" href="#" ng-click="showNext()"></a>
+				<!-- extra navigation controls -->
+				<ul class="navImage">
+					<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+						<img ng-src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>
