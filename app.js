@@ -16,7 +16,6 @@ passport.use(new LocalStrategy(
     console.log(username + ':' + password);
     loginService.getUserByName(username, function (user) {
       console.log(user);
-        console.log("success: " + user.EmailID + ":" + user.Password);
       if (user && username === user.EmailID && password === user.Password){
         console.log("success: " + user.EmailID + ":" + user.Password);
         return done(null, { name: username });
