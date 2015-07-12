@@ -12,7 +12,7 @@ var loginService = require('./serverRepositories/loginService.js')
 // Define the strategy to be used by PassportJS
 
 passport.use(new LocalStrategy(
-  function (username, password, done) { // here username is emailId
+  function (username, password, done) { // here username is emailID
     console.log(username + ':' + password);
     loginService.getUserByName(username, function (user) {
       console.log(user);
