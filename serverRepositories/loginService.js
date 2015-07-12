@@ -6,7 +6,7 @@
 
 		getUserByName: function (name, callback) {
 
-			mysqlconnection.query('SELECT * from userinfo WHERE Name = ?', name, function (err, rows, fields) {
+			mysqlconnection.query('SELECT * from userinfo WHERE EmailId = ?', name, function (err, rows, fields) {
 				if (!err) {
 					console.log('The solution is: ', rows);
 					callback(rows[0]);
@@ -28,6 +28,7 @@
 
 			mysqlconnection.query('INSERT INTO userinfo SET ?', sqlData, function (err, result) {
 				// Neat!
+				console.log("inside add userinfo");
 				console.log(result);
 				console.log(err);
 				if (callback)

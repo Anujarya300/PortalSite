@@ -12,12 +12,15 @@ var loginService = require('./serverRepositories/loginService.js')
 // Define the strategy to be used by PassportJS
 
 passport.use(new LocalStrategy(
-  function (username, password, done) {
+  function (username, password, done) { // here username is emailId
     console.log(username + ':' + password);
     loginService.getUserByName(username, function (user) {
       console.log(user);
-      if ( user && username === user.Name && password === user.password)
+        console.log("success: " + user.EmailID + ":" + user.Password);
+      if (user && username === user.EmailID && password === user.Password){
+        console.log("success: " + user.EmailID + ":" + user.Password);
         return done(null, { name: username });
+      }
     });
 
     // return done(null, false, { message: 'Incorrect username.' });

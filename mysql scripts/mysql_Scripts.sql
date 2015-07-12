@@ -17,6 +17,7 @@
 2. CREATE TABLE userinfo (
         User_id int AUTO_INCREMENT,
         Name VARCHAR(100),
+	Password VARCHAR(50)
         Address VARCHAR(500),
         ContactNo real,
         EmailID VARCHAR(100),
@@ -36,3 +37,8 @@
         FOREIGN KEY (user_id) REFERENCES userinfo (user_id)
     )
 
+4. ALTER Scripts
+	ALTER table userinfo add Password varchar(50) after Name
+	ALTER table adinfo add user_id int after ad_id
+	ALTER table adinfo add CONSTRAINT fk_adUser_id
+	FOREIGN KEY(user_id) references userinfo(user_id)
